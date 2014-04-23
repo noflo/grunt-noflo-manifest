@@ -111,7 +111,7 @@ module.exports = function(grunt) {
         if (ext === '.coffee' || ext === '.js' || ext === '.litcoffee') {
           // Component
           componentData = grunt.file.read(filepath);
-          updateGraph(platforms, parseId(componentData, filepath), localPath, parsePlatform(componentData));
+          updateComponent(platforms, parseId(componentData, filepath), localPath, parsePlatform(componentData));
         }
       });
 
