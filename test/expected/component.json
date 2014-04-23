@@ -1,7 +1,9 @@
 {
   "name": "foo",
   "scripts": [
-    "../test/fixtures/components/multiplatform.coffee"
+    "../test/fixtures/components/multiplatform.coffee",
+    "../test/fixtures/graphs/browser.json",
+    "../test/fixtures/graphs/multiplatform.fbp"
   ],
   "json": [
     "../test/fixtures/graphs/browser.json",
