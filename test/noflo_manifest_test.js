@@ -2,13 +2,8 @@
 
 var grunt = require('grunt');
 
-
 function readFile(file) {
-  var contents = grunt.file.read(file);
-  if (process.platform === 'win32') {
-    contents = contents.replace(/\r\n/g, '\n');
-  }
-  return contents;
+  return grunt.file.readJSON(file);
 }
 
 function assertFileEquality(test, pathToActual, pathToExpected, message) {
@@ -18,9 +13,8 @@ function assertFileEquality(test, pathToActual, pathToExpected, message) {
     actual = readFile(pathToActual);
   } catch (e) {
     console.log("\n" + e.message);
-    actual = '';
   }
-  test.equal(expected.trim(), actual.trim(), message);
+  test.deepEqual(expected, actual, message);
 }
 
 exports.noflo_manifest = {
