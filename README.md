@@ -1,4 +1,4 @@
-# grunt-noflo-manifest
+# grunt-noflo-manifest [![Build Status](https://travis-ci.org/noflo/grunt-noflo-manifest.svg?branch=master)](https://travis-ci.org/noflo/grunt-noflo-manifest)
 
 > Grunt plugin for updating NoFlo package manifests
 
@@ -31,6 +31,20 @@ grunt.initConfig({
   },
 });
 ```
+
+### Platform detection
+
+This Grunt plugin does its best to detect which platform(s) a particular graph or component is meant for, and adding them to only those manifest files.
+
+With JSON graphs the platform detection is based on the `environment.type` property of the graph.
+
+With other source files (FBP, CoffeeScript, etc), the platform detection happens using the `@runtime` annotation, which should be in the beginning of the file:
+
+```coffeescript
+# @runtime noflo-browser
+```
+
+If platform cannot be detected from a file it is assumed to be available for all platforms.
 
 ### Usage Examples
 
