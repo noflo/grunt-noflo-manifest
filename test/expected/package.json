@@ -2,8 +2,8 @@
   "name": "foo",
   "noflo": {
     "graphs": {
-      "multiplatform": "graphs/multiplatform.fbp",
-      "NodeGraph": "graphs/node.fbp"
+      "multiplatform": "../test/fixtures/graphs/multiplatform.fbp",
+      "NodeGraph": "../test/fixtures/graphs/node.fbp"
     }
   }
 }

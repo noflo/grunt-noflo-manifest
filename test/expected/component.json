@@ -2,8 +2,8 @@
   "name": "foo",
   "noflo": {
     "graphs": {
-      "multiplatform": "graphs/multiplatform.fbp",
-      "BarProject": "graphs/browser.json"
+      "BarProject": "../test/fixtures/graphs/browser.json",
+      "multiplatform": "../test/fixtures/graphs/multiplatform.fbp"
     }
   }
 }

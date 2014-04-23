@@ -32,7 +32,8 @@ module.exports = function(grunt) {
     noflo_manifest: {
       update: {
         files: {
-          'tmp': ['test/fixtures/graphs/*', 'test/fixtures/components/*'],
+          'tmp/package.json': ['test/fixtures/package.json', 'test/fixtures/graphs/*', 'test/fixtures/components/*'],
+          'tmp/component.json': ['test/fixtures/component.json', 'test/fixtures/graphs/*', 'test/fixtures/components/*'],
         },
       },
     },

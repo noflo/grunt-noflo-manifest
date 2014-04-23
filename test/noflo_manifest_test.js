@@ -13,13 +13,14 @@ function readFile(file) {
 
 function assertFileEquality(test, pathToActual, pathToExpected, message) {
   var actual, expected;
+  expected = readFile(pathToExpected);
   try {
-    expected = readFile(pathToExpected);
     actual = readFile(pathToActual);
   } catch (e) {
     console.log("\n" + e.message);
+    actual = '';
   }
-  test.equal(expected, actual, message);
+  test.equal(expected.trim(), actual.trim(), message);
 }
 
 exports.noflo_manifest = {
