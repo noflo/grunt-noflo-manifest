@@ -1,0 +1,86 @@
+{
+    "properties": {
+        "name": "Bar Project",
+        "id": "BarProject",
+        "environment": {
+            "runtime": "noflo-browser",
+            "type": "noflo-browser"
+        }
+    },
+    "inports": {},
+    "outports": {
+        "foo": {
+            "process": "dom/WriteHtml_hpsc",
+            "port": "container",
+            "metadata": {
+                "x": 360,
+                "y": -72
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "dom/GetElement_dwxuk": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 0,
+                "y": 33
+            }
+        },
+        "dom/WriteHtml_hpsc": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "dom/WriteHtml",
+                "x": 180,
+                "y": -72
+            }
+        },
+        "core/Repeat_hx6ja": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "core/Repeat",
+                "x": 0,
+                "y": -108
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/GetElement_dwxuk",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_hpsc",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_hx6ja",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_hpsc",
+                "port": "html"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "body",
+            "tgt": {
+                "process": "dom/GetElement_dwxuk",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "Hello world!!!",
+            "tgt": {
+                "process": "core/Repeat_hx6ja",
+                "port": "in"
+            }
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+# @runtime noflo-nodejs
+# @name NodeGraph
+'package.json' -> SOURCE Read(fs/ReadFile)
