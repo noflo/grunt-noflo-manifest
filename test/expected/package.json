@@ -4,6 +4,9 @@
     "graphs": {
       "multiplatform": "../test/fixtures/graphs/multiplatform.fbp",
       "NodeGraph": "../test/fixtures/graphs/node.fbp"
+    },
+    "components": {
+      "Multi": "../test/fixtures/components/multiplatform.coffee"
     }
   }
 }

@@ -133,6 +133,38 @@ module.exports = function(grunt) {
         }
         sourceJson = componentJson;
         platform = 'noflo-browser';
+
+        // Ensure components are provided via scripts key
+        if (!sourceJson.scripts) {
+          sourceJson.scripts = [];
+        }
+        if (platforms[platform].components) {
+          Object.keys(platforms[platform].components).forEach(function (component) {
+            var filename = platforms[platform].components[component];
+            if (sourceJson.scripts.indexOf(filename) === -1) {
+              sourceJson.scripts.push(filename);
+            }
+          });
+        }
+
+        // Ensure graphs are provided via json key
+        if (!sourceJson.json) {
+          sourceJson.json = [];
+        }
+        if (platforms[platform].graphs) {
+          Object.keys(platforms[platform].graphs).forEach(function (graph) {
+            var filename = platforms[platform].graphs[graph];
+            if (path.extname(filename) !== '.json') {
+              return;
+            }
+            if (sourceJson.json.indexOf(filename) === -1) {
+              sourceJson.json.push(filename);
+            }
+          });
+        }
+        if (sourceJson.json.indexOf('component.json') === -1) {
+          sourceJson.json.push('component.json');
+        }
       }
 
       if (!sourceJson.noflo) {

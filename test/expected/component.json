@@ -1,9 +1,19 @@
 {
   "name": "foo",
+  "scripts": [
+    "../test/fixtures/components/multiplatform.coffee"
+  ],
+  "json": [
+    "../test/fixtures/graphs/browser.json",
+    "component.json"
+  ],
   "noflo": {
     "graphs": {
       "BarProject": "../test/fixtures/graphs/browser.json",
       "multiplatform": "../test/fixtures/graphs/multiplatform.fbp"
+    },
+    "components": {
+      "Multi": "../test/fixtures/components/multiplatform.coffee"
     }
   }
 }
