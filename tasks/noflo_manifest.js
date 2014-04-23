@@ -154,11 +154,18 @@ module.exports = function(grunt) {
         if (platforms[platform].graphs) {
           Object.keys(platforms[platform].graphs).forEach(function (graph) {
             var filename = platforms[platform].graphs[graph];
-            if (path.extname(filename) !== '.json') {
-              return;
+            if (path.extname(filename) === '.json') {
+              if (sourceJson.json.indexOf(filename) === -1) {
+                sourceJson.json.push(filename);
+              }
             }
-            if (sourceJson.json.indexOf(filename) === -1) {
-              sourceJson.json.push(filename);
+            if (path.extname(filename) === '.fbp') {
+              if (!sourceJson.fbp) {
+                sourceJson.fbp = [];
+              }
+              if (sourceJson.fbp.indexOf(filename) === -1) {
+                sourceJson.fbp.push(filename);
+              }
             }
           });
         }

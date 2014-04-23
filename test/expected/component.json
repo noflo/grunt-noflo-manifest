@@ -7,6 +7,9 @@
     "../test/fixtures/graphs/browser.json",
     "component.json"
   ],
+  "fbp": [
+    "../test/fixtures/graphs/multiplatform.fbp"
+  ],
   "noflo": {
     "graphs": {
       "BarProject": "../test/fixtures/graphs/browser.json",
