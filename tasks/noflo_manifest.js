@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         }
       }
 
-      // Concat specified files.
+      // Process specified files.
       var src = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
@@ -154,6 +154,13 @@ module.exports = function(grunt) {
         if (platforms[platform].graphs) {
           Object.keys(platforms[platform].graphs).forEach(function (graph) {
             var filename = platforms[platform].graphs[graph];
+
+            // Ensure the file gets downloaded
+            if (sourceJson.scripts.indexOf(filename) === -1) {
+              sourceJson.scripts.push(filename);
+            }
+
+            // Type-specific handling
             if (path.extname(filename) === '.json') {
               if (sourceJson.json.indexOf(filename) === -1) {
                 sourceJson.json.push(filename);
