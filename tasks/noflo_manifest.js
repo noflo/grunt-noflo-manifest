@@ -91,7 +91,7 @@ module.exports = function(grunt) {
           return;
         }
         var ext = path.extname(filepath);
-        var localPath = path.relative(path.dirname(f.dest), filepath);
+        var localPath = path.relative(path.dirname(f.dest), filepath).replace(path.sep, '/');
         var graphData, componentData;
         if (ext === '.json') {
           // Graph
