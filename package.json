@@ -1,7 +1,7 @@
 {
   "name": "grunt-noflo-manifest",
   "description": "Grunt plugin for updating NoFlo package manifests",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/noflo/grunt-noflo-manifest",
   "author": {
     "name": "Henri Bergius",

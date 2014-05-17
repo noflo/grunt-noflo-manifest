@@ -77,9 +77,11 @@ module.exports = function(grunt) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else {
-          return true;
         }
+        if (!grunt.file.isFile(filepath)) {
+          return false;
+        }
+        return true;
       }).forEach(function (filepath) {
         // Override manifest from source file
         if (path.basename(filepath) === 'package.json') {
