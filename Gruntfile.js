@@ -34,6 +34,7 @@ module.exports = function(grunt) {
         files: {
           'tmp/package.json': ['test/fixtures/package.json', 'test/fixtures/graphs/*', 'test/fixtures/components/*'],
           'tmp/component.json': ['test/fixtures/component.json', 'test/fixtures/graphs/*', 'test/fixtures/components/*'],
+          'package.json': []
         },
       },
     },
