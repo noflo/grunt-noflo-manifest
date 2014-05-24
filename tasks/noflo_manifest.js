@@ -9,6 +9,7 @@
 'use strict';
 
 var path = require('path');
+var gitgo = require('gitgo');
 
 function updateGraph (platforms, id, localPath, type) {
   Object.keys(platforms).forEach(function (platform) {
@@ -54,6 +55,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('noflo_manifest', 'Grunt plugin for updating NoFlo package manifests', function() {
     // Iterate over all specified file groups.
+    var done = this.async();
     this.files.forEach(function(f) {
       var platforms = {
         'noflo-nodejs': {},
@@ -195,11 +197,19 @@ module.exports = function(grunt) {
         delete sourceJson.noflo.components;
       }
 
-      // Write the destination file.
-      grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" updated.');
+      var req = gitgo(path.dirname(f.dest), ['describe', '--tags', '--abbrev=0']);
+      req.once('data', function (data) {
+        var version = data.toString('utf-8').replace('\n', '');
+        sourceJson.version = version;
+        grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
+        grunt.log.writeln('File "' + f.dest + '" updated with version ' + version + '.');
+        done();
+      });
+      req.once('error', function (data) {
+        grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
+        grunt.log.writeln('File "' + f.dest + '" updated.');
+        done();
+      });
     });
   });
 
