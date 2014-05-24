@@ -7,6 +7,7 @@ script: grunt test
 deploy:
   provider: npm
   email: henri.bergius@iki.fi
+  skip_cleanup: true
   api_key:
     secure: btUEMhywXMDFvvaDlb63n4D4b7GeaEsd8gAR64+tbf+Fmu28TfRrtMsigc7aZb1LtspGjObiw09sLrl73iKtd2wtvSoYVELed2y6pbba7Mhjduj9MkJSQtB4rPQ4N+8fivhpcTe4dITzQ1CJfzv6askNFAAD9Dv0StOmTH9lPAI=
   on:
