@@ -56,6 +56,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('noflo_manifest', 'Grunt plugin for updating NoFlo package manifests', function() {
     // Iterate over all specified file groups.
     var done = this.async();
+    var todo = this.files.length;
     this.files.forEach(function(f) {
       var platforms = {
         'noflo-nodejs': {},
@@ -204,19 +205,25 @@ module.exports = function(grunt) {
       var errored = false;
       req.once('data', function (data) {
         if (errored) {
-          done();
           return;
         }
         var version = data.toString('utf-8').replace('\n', '');
         sourceJson.version = version;
         grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
         grunt.log.writeln('File "' + f.dest + '" updated with version ' + version + '.');
-        done();
+        todo--;
+        if (todo <= 0) {
+          done();
+        }
       });
       req.once('error', function (data) {
         errored = true;
         grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
         grunt.log.writeln('File "' + f.dest + '" updated.');
+        todo--;
+        if (todo <= 0) {
+          done();
+        }
       });
     });
   });
