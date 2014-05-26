@@ -200,7 +200,6 @@ module.exports = function(grunt) {
       if (Object.keys(sourceJson.noflo).length === 0) {
         delete sourceJson.noflo;
       }
-
       var req = gitgo(path.dirname(f.dest), ['describe', '--tags', '--abbrev=0']);
       var errored = false;
       req.once('data', function (data) {
@@ -209,15 +208,20 @@ module.exports = function(grunt) {
         }
         var version = data.toString('utf-8').replace('\n', '');
         sourceJson.version = version;
+      });
+      req.once('error', function (data) {
+        errored = true;
         grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
-        grunt.log.writeln('File "' + f.dest + '" updated with version ' + version + '.');
+        grunt.log.writeln('File "' + f.dest + '" updated.');
         todo--;
         if (todo <= 0) {
           done();
         }
       });
-      req.once('error', function (data) {
-        errored = true;
+      req.once('end', function () {
+        if (errored) {
+          return;
+        }
         grunt.file.write(f.dest, JSON.stringify(sourceJson, null, 2));
         grunt.log.writeln('File "' + f.dest + '" updated.');
         todo--;
