@@ -1,4 +1,4 @@
-# grunt-noflo-manifest [![Build Status](https://travis-ci.org/noflo/grunt-noflo-manifest.svg?branch=master)](https://travis-ci.org/noflo/grunt-noflo-manifest)
+# grunt-noflo-manifest [![Build Status](https://travis-ci.org/noflo/grunt-noflo-manifest.svg?branch=master)](https://travis-ci.org/noflo/grunt-noflo-manifest) [![Build status](https://ci.appveyor.com/api/projects/status/5yatgc18denjnosa)](https://ci.appveyor.com/project/bergie/grunt-noflo-manifest)
 
 > Grunt plugin for updating NoFlo package manifests
 
