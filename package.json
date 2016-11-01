@@ -1,7 +1,7 @@
 {
   "name": "grunt-noflo-manifest",
   "description": "Grunt plugin for updating NoFlo package manifests",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "homepage": "https://github.com/noflo/grunt-noflo-manifest",
   "author": {
     "name": "Henri Bergius",
@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/noflo/grunt-noflo-manifest/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/noflo/grunt-noflo-manifest/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "engines": {
     "node": ">= 4"
   },
