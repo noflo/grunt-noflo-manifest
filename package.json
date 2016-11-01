@@ -35,6 +35,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "gitgo": "0.5.1"
+    "gitgo": "0.5.3"
   }
 }
