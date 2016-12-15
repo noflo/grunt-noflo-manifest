@@ -56,7 +56,7 @@ grunt.initConfig({
     both: {
       files: {
         'package.json': ['graphs/*', 'components/*'],
-        'component.json': ['graphs/*', 'components/*']
+        'component.json': ['graphs/*', 'components/*', 'scripts/*']
       },
     }
   },
